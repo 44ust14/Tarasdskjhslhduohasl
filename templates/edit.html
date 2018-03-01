@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="/edit" method="POST">
+
+  {%if context.user.object.type.type_name == 'user':%}
+
+    First Name:<br>
+  {%else%}
+    Group Name:<br>
+  {%endif%}
+
+  <input type="text" name="first_name" value="{%if context.user %}{{context.user.object.first_name}}{%endif%}">
+  <br>
+
+  {%if context.user.object.type.type_name == 'user':%}
+    Last Name:<br>
+    <input type="text" name="last_name" value="{%if context.user %}{{context.user.object.last_name}}{%endif%}">
+    <br>
+  {%else%}
+    Descr:<br>
+    <input type="text" name="descr" value="{%if context.user %}{{context.user.object.email}}{%endif%}">
+    <br>
+  {%endif%}
+
+  Nickname:<br>
+  <input type="text" name="nickname" value="{%if context.user %}{{context.user.object.nickname}}{%endif%}">
+  <br>
+  Email:<br>
+  <input type="text" name="email" value="{%if context.user %}{{context.user.object.email}}{%endif%}">
+  <br>
+
+  {%if context.user.object.type.type_name == 'user':%}
+    Passw1:<br>
+    <input type="text" name="passw1" value="{%if context.user %}{{context.user.object.password}}{%endif%}">
+    <br>
+    Passw2:<br>
+    <input type="text" name="passw2" value="{%if context.user %}{{context.user.object.password}}{%endif%}">
+  {%endif%}
+  <br>
+  User Type:<br>
+  <input type="text" name="type_name" value="{{context.user.object.type.type_name}}">
+  <br><br>
+  <input type="submit" value="Edit">
+</form>
+</body>
+</html>

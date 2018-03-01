@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style/style.css">
+    <meta charset="UTF-8">
+    <title>User profile</title>
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">-->
+  <link rel=stylesheet type=text/css href="../static/style/style.css">
+
+</head>
+<body>
+  <p>{{session.username}}</p>
+{% block content %}{% endblock %}
+
+{% block javascript %}{% endblock %}
+{% block css %}{% endblock %}
+</body>
+</html>

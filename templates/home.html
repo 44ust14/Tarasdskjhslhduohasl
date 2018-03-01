@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+<div class="main_content">
+	{% block content %}
+		{%if context:%}
+
+			<p align="center">Hello, {{context.user.object.first_name}} {{context.user.object.last_name}}</p>
+			<p align="center">
+			Your info:
+			<br>
+			Email: {{context.user.object.email}}
+			<br>
+			Nickname: {{context.user.object.nickname}}
+			<br>
+			More stuff: {{context.user.object.email}}
+			<br>
+			Some more stuff: {{context.user.object.email}}
+			</p>
+		{%else%}
+			<p>Info: Unknown</p>
+		{%endif%}
+
+		{%if context.user.object.id != context.loginUser.object.id%}
+			<form method="GET" action="/add_friend">
+							<input type="name" class="form-control" name="id" value="{{context.user.object.id}}" style="display:none">
+			<br><button type="submit" class="btn btn-danger">Add Friend</button>
+		{%endif%}
+		</form>
+	{% endblock %}
+</div>
